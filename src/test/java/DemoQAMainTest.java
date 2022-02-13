@@ -20,7 +20,11 @@ public class DemoQAMainTest {
         open("/automation-practice-form");
         registrationFormPage
                 .fillAllFields()
-                .selectGender()
-                .enterDate();
+                .selectGenderAndHobbies()
+                .enterDate()
+                .selectPicture()
+                .fillStateAndCity()
+                .clickSubmit()
+                .checkCompletedForm();
     }
 }
