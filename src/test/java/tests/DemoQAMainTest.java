@@ -20,7 +20,7 @@ public class DemoQAMainTest {
             year = "2015",
             subjects = "Math",
             hobbies = "Sports",
-            picture = "1.png",
+            namePicture = "kit.png",
             address = "Some address 1",
             state = "NCR",
             City = "Delhi";
@@ -45,7 +45,7 @@ public class DemoQAMainTest {
                 .setBirthDate(day, month, year)
                 .setSubjects(subjects)
                 .setUserHobbies(hobbies)
-                .setLoadPicture(picture)
+                .upLoadPicture(namePicture)
                 .setAddress(address)
                 .setState(state)
                 .setCity(City)
@@ -57,7 +57,7 @@ public class DemoQAMainTest {
                 .checkCompletedForm("Date of Birth", day + " " + month + "," + year)
                 .checkCompletedForm("Subjects", subjects)
                 .checkCompletedForm("Hobbies", hobbies)
-                .checkCompletedForm("Picture", picture)
+                .checkCompletedForm("Picture", namePicture)
                 .checkCompletedForm("Address", address)
                 .checkCompletedForm("State and City", state + " " + City);
     }

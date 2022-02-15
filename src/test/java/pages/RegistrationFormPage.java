@@ -19,7 +19,7 @@ public class RegistrationFormPage {
             calendar = $("#dateOfBirthInput"),
             subjectsInput = $("#subjectsInput"),
             userHobbies = $("#hobbiesWrapper"),
-            loadPicture = $("#uploadPicture"),
+            upLoadPicture = $("#uploadPicture"),
             userAddress = $("#currentAddress"),
             setState = $("#react-select-3-input"),
             setCity = $("#react-select-4-input"),
@@ -67,8 +67,8 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setLoadPicture(String picture) {
-        loadPicture.uploadFromClasspath(picture);
+    public RegistrationFormPage upLoadPicture(String namePicture) {
+        upLoadPicture.uploadFromClasspath(namePicture);
         return this;
     }
 
