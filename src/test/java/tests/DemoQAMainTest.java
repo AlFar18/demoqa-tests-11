@@ -23,7 +23,7 @@ public class DemoQAMainTest {
             namePicture = "kit.png",
             address = "Some address 1",
             state = "NCR",
-            City = "Delhi";
+            city = "Delhi";
 
 
     @BeforeAll
@@ -48,7 +48,7 @@ public class DemoQAMainTest {
                 .upLoadPicture(namePicture)
                 .setAddress(address)
                 .setState(state)
-                .setCity(City)
+                .setCity(city)
                 .submitClick()
                 .checkCompletedForm("Student Name", firstName + " " + lastName)
                 .checkCompletedForm("Student Email", userEmail)
@@ -59,6 +59,6 @@ public class DemoQAMainTest {
                 .checkCompletedForm("Hobbies", hobbies)
                 .checkCompletedForm("Picture", namePicture)
                 .checkCompletedForm("Address", address)
-                .checkCompletedForm("State and City", state + " " + City);
+                .checkCompletedForm("State and City", state + " " + city);
     }
 }
