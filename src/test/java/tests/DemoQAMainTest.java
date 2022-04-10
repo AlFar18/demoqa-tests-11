@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationFormPage;
@@ -9,26 +10,28 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class DemoQAMainTest {
+    Faker faker = new Faker();
     String
-            firstName = "Alan",
-            lastName = "Rickman",
-            userEmail = "rickman@mail.com",
-            userGender = "Other",
-            userNumber = "1234567890",
+            firstName = faker.name().firstName(),
+            lastName = faker.name().lastName(),
+            userEmail = faker.internet().emailAddress(lastName),
+            userGender = faker.demographic().sex(),
+            userNumber = faker.numerify("##########"),
             day = "15",
             month = "January",
             year = "2015",
             subjects = "Math",
             hobbies = "Sports",
             namePicture = "kit.png",
-            address = "Some address 1",
+            address = faker.address().fullAddress(),
             state = "NCR",
-            City = "Delhi";
+            city = "Delhi";
 
 
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
     }
 
     @Test
@@ -48,7 +51,7 @@ public class DemoQAMainTest {
                 .upLoadPicture(namePicture)
                 .setAddress(address)
                 .setState(state)
-                .setCity(City)
+                .setCity(city)
                 .submitClick()
                 .checkCompletedForm("Student Name", firstName + " " + lastName)
                 .checkCompletedForm("Student Email", userEmail)
@@ -59,6 +62,6 @@ public class DemoQAMainTest {
                 .checkCompletedForm("Hobbies", hobbies)
                 .checkCompletedForm("Picture", namePicture)
                 .checkCompletedForm("Address", address)
-                .checkCompletedForm("State and City", state + " " + City);
+                .checkCompletedForm("State and City", state + " " + city);
     }
 }
